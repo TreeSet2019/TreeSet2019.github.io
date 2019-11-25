@@ -279,19 +279,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://github.com/TreeSet2019/cdn/tree/master/img/theme/z.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://github.com/TreeSet2019/cdn/tree/master/img/theme/z.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      hive</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-11-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">hive</h1>
-            <p class="entry-census">&nbsp;·&nbsp;2019-11-25&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
         
         <div class="entry-content">
           <p>Hive的简介<br>hive：数据仓库<br>hive的本质也是mapreduce，只是现在由SQL完成，SQL也是需要转换成mr的。hive启动在hadoop启动下（HDFS MR YARN）<br>1.数据库和数据仓库的区别：<br>    （1）数据库支撑业务系统的使用（快），数据仓库（不一定快）<br>    （2) 数据仓库可以收集不同数据源的数据，<br>    （3）关系型数据库可以修改，数据仓库里的数据不可以修改（整个数据在各个时间的数据）<br>    数据仓库补充的知识点：oltp（联机事务处理）和olap（联机分析处理） oltp事务级别的控制。olap指数据仓库方面的控制（需要返回结果，时间可以长一点）<br>2.hive：解释器， 编译器， 优化器等<br>    SQL—&gt;mr<br>3.hive运行时，元数据存储在关系型数据库仓库里面。<br>    （1）元数据的统一管理<br>    （2）hdfs无法识别表头信息（因为它是一行一行读取的），mysql不需要分辨<br>Hive的架构<br>    （三层）<br>     ——————————————————————————————————–<br>    |CLI(命令行界面)，JDBC/ODBC,Web GUI                                                                      |<br>    |——————————————————————————————————–|<br>    |Thrift Server（跨界节点调用），Driver（Hive的核心组件，编译器解释器在Driver端完成），Metastore（元信息）|<br>    |——————————————————————————————————–|<br>    |HADOOP角色                                                                                              |<br>        ———————————————————————————————————-<br>    在Driver接收到客户端的请求会去Metastore中询问是否有元数据信息，如果有才会让Compiler发起编译（SQL-&gt;jar），Compiler返回给Driver，Driver返回给Hadoop<br>Hive的安装注意：（1.修改配置文件 2.将mysql jar包拷在hive的lib目录下面 3.schematool -dbType mysql -initSchema  hive2.1以上需要 4. hive 启动hive）<br>    Linux安装的几种方式：1.rpm 2.yum 3.编译安装 4.解压安装<br>    yum换源 （1）cd /etc/yum.repos.d （2）备份下面的文件，安装wget的命令 yum install wget（3）mirrors.aliyun.com 执行帮助的文件 （4）执行后会看见CentOS-Base.repo yum cleam all<br>        （5）yum makecache<br>    hive安装有三种方式<br>    （1）内嵌：连接Derby。Derby内存数据库，掉电易失<br>    （2）远程元数据：连接Mysql。<br>    （3）元数据服务：Hive Metastore Administration。实现Hive和数据库之间的解耦。把元数据抽象出来，可以单独使用。<br>    Linux下载mysql-server  ——&gt; server mysqld start —-&gt;修改数据库权限：（允许远程虚拟机对自己进行访问）在mysql中数据库中–&gt;select host,user,password from user;<br>    grant all privileges <em>.</em> to ‘root’@’%’ identified by ‘123’ with grant option;(不能insert) —&gt;delete from user where host!=’%’;——-&gt;重启服务或者flush privileges;<br>    注意：（1）%表示所有的地址都可以访问。*表示所有库， *表示所有表。 （2）设置mysql为开机自启：chkconfig mysqld on （3）vim下的末行模式（光标所在行和文件末的一行之间删掉）：.,$-1d<br>          （3）cat -A 显示一个内容的全部  （4）在hive中查看表描述：desc tbl;或者 desc formatted tbl; （5）ctrl+A|B..表示ASCII码</p>
