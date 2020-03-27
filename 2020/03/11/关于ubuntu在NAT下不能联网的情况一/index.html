@@ -286,11 +286,10 @@
           <p>使用ifconfig命令找不到IP地址，只有lo<br>查询网卡或者设备:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig -a</span><br></pre></td></tr></table></figure>
 
-<p>解决办法：<br>###方法一  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dhclient ens33</span><br><span class="line">$ sudo ifconfig ens33</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dhclient ens33         </span><br><span class="line">$ sudo ifconfig ens33</span><br></pre></td></tr></table></figure>
 
-<p>####方法二 </p>
-<pre><code class="bash">$ sudo systemctl restart network-manager.service</code></pre>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><pre><code class="bash">$ sudo systemctl restart network-manager.service</code></pre>
 
         </div>
         <!-- .entry-content -->
